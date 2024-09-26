@@ -6,6 +6,7 @@ import { Outlet } from 'react-router-dom';
 import axiosInstance from '../../../user-page/src/config/axiosInstance';
 import { useDispatch } from 'react-redux';
 import { setAdminNotifications } from '../slices/adminSlice';
+import toast from 'react-hot-toast';
 
 function AdminLayout() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function AdminLayout() {
         url: '/admin/admin-notifications',
       });
 
-      console.log(response)
+     
 
       const notifications = response.data.data || [];
       const readNotifications = notifications.filter(
@@ -27,7 +28,7 @@ function AdminLayout() {
         (notification) => !notification.isRead
       );
 
-      // Directly dispatch notifications instead of relying on state
+    
       dispatch(
         setAdminNotifications({
           readNotifications: readNotifications,
@@ -36,10 +37,9 @@ function AdminLayout() {
         })
       );
 
-      // console.log('Read Notifications:', readNotifications);
-      // console.log('Unread Notifications:', unreadNotifications);
+     
     } catch (error) {
-      console.log(error);
+     toast.error("Error getting notification")
     }
   };
 

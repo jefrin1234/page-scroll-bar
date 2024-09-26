@@ -37,12 +37,12 @@ function NotificationDetails() {
       } else if (data.message.includes('product')) {
         response = await axiosInstance.get(`/products/product-details/${data.data._id}`);
       }
-
-      const isVerified = response.data.data.verified === true;
+    
+      const isVerified = response.data.data.verified === true 
       setVerified(isVerified); // Set verified status based on fetched data
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching verification status:', error);
+     toast.error("error getting notification status")
       setLoading(false);
     }
   };
@@ -55,7 +55,7 @@ function NotificationDetails() {
         data: { isRead: true }
       });
     } catch (error) {
-      console.error('Error marking notification as read:', error);
+     toast.error("error updating notification")
     }
   };
 
@@ -71,7 +71,7 @@ function NotificationDetails() {
 
       setVerified(true); // Update the local state to verified
     } catch (error) {
-      console.error('Error verifying:', error);
+    
       toast.error("Error verifying");
     }
   };

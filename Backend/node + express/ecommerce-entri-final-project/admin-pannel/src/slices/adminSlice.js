@@ -14,18 +14,13 @@ export const adminSlice = createSlice({
       
       state.admin = action.payload.admin
       state.loggedIn = action.payload.loggedIn
-      console.log(state.admin)
-      console.log(state.loggedIn)
-    
+     
    },
    setAdminNotifications:(state,action)=>{
     state.notifications  =  action.payload.notifications 
     state.readNotifications = action.payload.readNotifications
     state.unReadNotifications = action.payload.unReadNotifications
 
-    console.log(state.readNotifications)
-    console.log(state.unReadNotifications)
-    console.log(state.notifications)
    
    }
   }

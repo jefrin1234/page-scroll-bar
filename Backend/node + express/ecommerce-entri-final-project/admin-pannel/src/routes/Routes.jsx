@@ -8,6 +8,9 @@ import { AuthAdmin } from "./protectedRoutes/AuthAdmin";
 import Notifications from "../components/Notifications";
 import NotificationDetails from "../components/NotificationDetails";
 import Customers from "../components/Customers";
+import Products from "../components/Products";
+import Sellers from "../components/Sellers";
+import SellerDetails from "../components/SellerDetails";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +36,18 @@ export const router = createBrowserRouter([
           {
             path:'customers',
             element:<Customers/>
+          },
+          {
+            path:'products',
+            element:<Products/>
+          },
+          {
+            path:'sellers',
+            element:<Sellers/>
+          },
+          {
+            path:'sellers/seller-details/:sellerId',
+            element:<SellerDetails/>
           }
         ]
       },

@@ -30,8 +30,7 @@ export default function App() {
         data: data
       })
 
-    console.log(response.data)
-
+ 
 
       if (response.data.success) {
         dispatch(setAdminDetails({ admin: response.data, loggedIn: true }))
@@ -40,7 +39,7 @@ export default function App() {
 
       }
     } catch (error) {
-      console.log(error)
+     
       toast.error("error logging in")
     }
   }

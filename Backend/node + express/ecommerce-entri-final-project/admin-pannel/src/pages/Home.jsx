@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import {  User, Box, ShoppingCart,  DollarSign, LogOut, Bell, X, Users, HandPlatter } from 'lucide-react';
 import { useSelector } from 'react-redux';
-import toast from 'react-hot-toast';
-import { axiosInstance } from '../config/axiosInstance';
+
 
 
 function Home() {
 
   const [isSidebarOpen,setIsSidebarOpen] = useState(false)
   const {unReadNotifications} = useSelector(state=>state.admin)
+  const location = useLocation();
+
   const handleLinkClick = () => {
-   setIsSidebarOpen  // Close the sidebar when a link is clicked
+   setIsSidebarOpen  
   };
 
   const handleBackdropClick = () => {
-    setIsSidebarOpen(false);  // Close the sidebar when clicking on the backdrop
+    setIsSidebarOpen(false);  
   };
 
 
@@ -54,7 +55,7 @@ function Home() {
             </li>
             <li>
               <Link
-                to="/"
+                to="products"
                 onClick={handleLinkClick}
                 className={`flex items-center p-3 rounded-md transition-colors duration-300 ${location.pathname.includes('all-product') ? 'bg-orange-500 text-green-900' : 'hover:bg-blue-600 hover:text-white'}`}
               >
@@ -66,7 +67,7 @@ function Home() {
               <Link
                 to="customers"
                 onClick={handleLinkClick}
-                className={`flex items-center p-3 rounded-md transition-colors duration-300 ${location.pathname.includes('uploadproducts') ? 'bg-red-500 text-green-900' : 'hover:bg-blue-600 hover:text-white'}`}
+                className={`flex items-center p-3 rounded-md transition-colors duration-300 ${location.pathname.includes('customers') ? 'bg-blue-500 ' : 'hover:bg-blue-600 hover:text-white'}`}
               >
                 <Users className="mr-3 h-5 w-5" />
                 Customers
@@ -74,7 +75,7 @@ function Home() {
             </li>
             <li>
               <Link
-                to="uploadproducts"
+                to="sellers"
                 onClick={handleLinkClick}
                 className={`flex items-center p-3 rounded-md transition-colors duration-300 ${location.pathname.includes('uploadproducts') ? 'bg-red-500 text-green-900' : 'hover:bg-blue-600 hover:text-white'}`}
               >
@@ -83,8 +84,8 @@ function Home() {
               </Link>
             </li>
             <li>
-              <Link
-                to="orders"
+              <Link                    
+                to="orders"               
                 onClick={handleLinkClick}
                 className={`flex items-center p-3 rounded-md transition-colors duration-300 ${location.pathname.includes('orders') ? 'bg-violet-600 text-green-900' : 'hover:bg-blue-600 hover:text-white'}`}
               >

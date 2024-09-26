@@ -21,12 +21,12 @@ export const AuthAdmin = ({ children }) => {
             url:'/admin/check-admin'
           })
     
-          console.log(response)
+         
           setIsLoggedIn(true)
           dispatch(setAdminDetails({loggedIn:true,admin:response.data.data}))
         
         } catch (error) {
-          console.log(error)
+          
           navigate('/login')
         }
       } 
