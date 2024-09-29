@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { axiosInstance } from '../config/axiosInstance';
@@ -12,7 +14,7 @@ function Sellers() {
         method: 'GET',
         url: '/admin/all-sellers',
       });
-    
+    console.log(response.data.data)
       setSellers(response.data.data);
     } catch (error) {
       toast.error('Error getting sellers');
@@ -48,3 +50,4 @@ function Sellers() {
 }
 
 export default Sellers;
+
